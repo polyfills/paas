@@ -67,6 +67,13 @@ describe('PaaS', function () {
       })
     })
 
+    it('should set Vary', function (done) {
+      request(server)
+      .get('/polyfill.js')
+      .expect('Vary', 'Accept-Encoding, User-Agent')
+      .expect(200, done);
+    })
+
     it('should support 304 status codes with ETags', function (done) {
       request(server)
       .get('/polyfill.js')
