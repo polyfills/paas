@@ -17,6 +17,20 @@ describe('PaaS', function () {
     .expect(404, done)
   })
 
+  it('GET /test.html', function (done) {
+    request(server)
+    .get('/test.html')
+    .expect('Content-Type', /text\/html/)
+    .expect(200, done)
+  })
+
+  it('GET /test.js', function (done) {
+    request(server)
+    .get('/test.js')
+    .expect('Content-Type', /application\/javascript/)
+    .expect(200, done)
+  })
+
   it('HEAD /polyfill.js', function (done) {
     request(server)
     .head('/polyfill.js')
