@@ -9,6 +9,9 @@
 [![Downloads][downloads-image]][downloads-url]
 [![Gittip][gittip-image]][gittip-url]
 
+This is the server for https://cdn.jsdelivr.net/polyfills/polyfill.js.
+Please see the documentation at https://polyfills.github.io.
+
 [npm-image]: https://img.shields.io/npm/v/paas.svg?style=flat-square
 [npm-url]: https://npmjs.org/package/paas
 [github-tag]: http://img.shields.io/github/tag/polyfills/paas.svg?style=flat-square

@@ -2,8 +2,6 @@
 var request = require('supertest')
 var assert = require('assert')
 
-require('polyfills')().clean()
-
 var server = require('..').listen()
 
 // http://caniuse.com/#feat=promises
