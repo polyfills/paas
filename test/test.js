@@ -130,7 +130,7 @@ describe('PaaS', function () {
 
     it('should support , and ; delimited options', function (done) {
       request(server)
-      .get('/polyfill.js+promise,domelements,raf')
+      .get('/polyfill.js+promise,domelements,dom4,raf')
       .expect(200, function (err, res) {
         assert.ifError(err)
         var js = res.text
