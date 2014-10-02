@@ -57,21 +57,10 @@ describe('PaaS', function () {
   })
 
   describe('GET /polyfill.js', function () {
-    it('should respect Accept-Encoding: identity', function (done) {
-      request(server)
-      .get('/polyfill.js')
-      .set('Accept-Encoding', 'identity')
-      .expect(200, function (err, res) {
-        assert.ifError(err)
-        assert(!res.headers['content-encoding'])
-        done()
-      })
-    })
-
     it('should set Vary', function (done) {
       request(server)
       .get('/polyfill.js')
-      .expect('Vary', 'Accept-Encoding, User-Agent')
+      .expect('Vary', 'User-Agent')
       .expect(200, done);
     })
 
