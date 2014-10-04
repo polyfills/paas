@@ -1,0 +1,37 @@
+#!/usr/bin/env node
+
+var username = process.env.SAUCELABS_USERNAME
+var password = process.env.SAUCELABS_PASSWORD
+var hostname = process.env.POLYFILLS_HOSTNAME || 'https://cdn.jsdelivr.net/polyfills'
+
+var platforms = [
+  ['win7', 'internet explorer', '11'],
+  ['win7', 'internet explorer', '10'],
+  ['win7', 'internet explorer', '8'],
+  ['win7', 'chrome', 'latest'],
+  ['win7', 'firefox', 'latest'],
+  ['win7', 'opera', 'latest'],
+  ['os x 10.9', 'safari', '7.1'],
+  ['os x 10.9', 'safari', '7.0'],
+  ['os x 10.9', 'safari', '6.2'],
+  ['os x 10.9', 'safari', '6.1'],
+  ['os x 10.9', 'safari', '7.0'],
+  ['os x 10.9', 'safari', '5.1'],
+]
+
+var cp = require('child_process')
+cp.exec([
+  'curl',
+  'https://saucelabs.com/rest/v1/' + username + '/js-tests',
+  '-X POST',
+  '-u ' + username + ':' + password,
+  '-H \'Content-Type: application/json\'',
+  '--data \'' + JSON.stringify({
+    platforms: platforms,
+    url: hostname + '/test.html',
+    framework: 'mocha',
+  }) + '\'',
+].join(' '), function (err, stdout, stderr) {
+  if (err) console.log(stderr)
+  else console.log(stdout)
+})
