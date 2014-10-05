@@ -7,7 +7,7 @@ var hostname = process.env.POLYFILLS_HOSTNAME || 'https://cdn.jsdelivr.net/polyf
 var platforms = [
   ['win7', 'internet explorer', '11'],
   ['win7', 'internet explorer', '10'],
-  ['win7', 'internet explorer', '8'],
+  ['win7', 'internet explorer', '9'],
   ['win7', 'chrome', 'latest'],
   ['win7', 'firefox', 'latest'],
   ['win7', 'opera', 'latest'],
@@ -15,7 +15,7 @@ var platforms = [
   ['os x 10.9', 'safari', '7.0'],
   ['os x 10.9', 'safari', '6.2'],
   ['os x 10.9', 'safari', '6.1'],
-  ['os x 10.9', 'safari', '7.0'],
+  ['os x 10.9', 'safari', '6.0'],
   ['os x 10.9', 'safari', '5.1'],
 ]
 
