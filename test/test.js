@@ -71,7 +71,7 @@ describe('PaaS', function () {
       .expect(304, done)
     })
 
-    it('should not include promises with Chrome 35', function (done) {
+    it('should not include EventSource() with Chrome 35', function (done) {
       request(server)
       .get('/polyfill.js')
       .set('User-Agent', chrome35)
@@ -81,7 +81,7 @@ describe('PaaS', function () {
         assert.ifError(err)
         var js = res.text
         new Function(js)
-        assert(!~js.indexOf('Promise'))
+        assert(!~js.indexOf('EventSource'))
         done()
       })
     })
@@ -100,7 +100,7 @@ describe('PaaS', function () {
       })
     })
 
-    it('should not include promises w/ Chrome 27 and include!=promise', function (done) {
+    it('should not include Object.observe() w/ Chrome 27 and include!=obs', function (done) {
       request(server)
       .get('/polyfill.js+domels')
       .set('User-Agent', chrome27)
@@ -109,21 +109,21 @@ describe('PaaS', function () {
         assert.ifError(err)
         var js = res.text
         new Function(js)
-        assert(!~js.indexOf('Promise'))
+        assert(!~js.indexOf('Object.observe'))
         done()
       })
     })
 
-    it('should not include promises w/ Chrome 27 and exclude=promise', function (done) {
+    it('should not include Object.observe() w/ Chrome 27 and exclude=obs', function (done) {
       request(server)
-      .get('/polyfill.js-promise')
+      .get('/polyfill.js-obs')
       .set('User-Agent', chrome27)
       .expect('Content-Type', /application\/javascript/)
       .expect(200, function (err, res) {
         assert.ifError(err)
         var js = res.text
         new Function(js)
-        assert(!~js.indexOf('Promise'))
+        assert(!~js.indexOf('Object.observe'))
         done()
       })
     })
