@@ -7,7 +7,7 @@
   "repository": "polyfills/paas",
   "dependencies": {
     "koa": "0",
-    "polyfills": "^1.9.3",
+    "polyfills": "^1.9.4",
     "polyfills-db": "^1.14.3"
   },
   "devDependencies": {
