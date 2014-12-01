@@ -7,8 +7,8 @@
   "repository": "polyfills/paas",
   "dependencies": {
     "koa": "0",
-    "polyfills": "^1.9.7",
-    "polyfills-db": "^1.15.0"
+    "polyfills": "^1.10.0",
+    "polyfills-db": "^1.18.1"
   },
   "devDependencies": {
     "istanbul-harmony": "0",
