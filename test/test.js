@@ -35,11 +35,8 @@ describe('PaaS', function () {
   it('HEAD /polyfill.js', function (done) {
     request(server)
     .head('/polyfill.js')
-    .expect(200, function (err, res) {
-      assert.ifError(err)
-      assert(etag = res.headers.etag)
-      done()
-    })
+    .expect(200)
+    .expect('', done)
   })
 
   it('OPTIONS /polyfill.js', function (done) {
@@ -64,19 +61,11 @@ describe('PaaS', function () {
       .expect(200, done);
     })
 
-    it('should support 304 status codes with ETags', function (done) {
-      request(server)
-      .get('/polyfill.js')
-      .set('If-None-Match', etag)
-      .expect(304, done)
-    })
-
     it('should not include EventSource() with Chrome 35', function (done) {
       request(server)
       .get('/polyfill.js')
       .set('User-Agent', chrome35)
       .expect('Content-Type', /application\/javascript/)
-      .expect('Content-Encoding', 'gzip')
       .expect(200, function (err, res) {
         assert.ifError(err)
         var js = res.text
