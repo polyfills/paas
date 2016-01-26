@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "istanbul-harmony": "0",
-    "mocha": "2",
+    "mocha": "2.4.1",
     "supertest": "^0.14.0"
   },
   "scripts": {
